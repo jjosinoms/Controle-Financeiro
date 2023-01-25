@@ -1,0 +1,33 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SistemaContas.Presentation
+build_property.RootNamespace = SistemaContas.Presentation
+build_property.ProjectDir = F:\SistemaContas\SistemaContas\SistemaContas.Presentation\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\SistemaContas\SistemaContas\SistemaContas.Presentation
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/SistemaContas/SistemaContas/SistemaContas.Presentation/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/SistemaContas/SistemaContas/SistemaContas.Presentation/Views/Account/PasswordRecover.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQYXNzd29yZFJlY292ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/SistemaContas/SistemaContas/SistemaContas.Presentation/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/SistemaContas/SistemaContas/SistemaContas.Presentation/Views/Shared/AccountLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY291bnRMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

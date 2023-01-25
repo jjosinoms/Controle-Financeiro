@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/AccountLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Login</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card mt-5">
+            <div class="card-body">
+                <form class="row g-3">
+                    <div class="mb-2 d-grid">
+                        <label for="staticEmail2" class="visually-hidden">Email</label>
+                        <input type="text" class="form-control" id="username" placeholder="Usuário">
+                    </div>
+                    <div class="mb-2 d-grid">
+                        <label for="inputPassword2" class="visually-hidden">Password</label>
+                        <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
+                    </div>
+                    <div class="mb-2 d-grid">
+                        <button type="submit" class="btn btn-success mb-3">Entrar</button>
+                    </div>
+                    <div class="mb-2 d-grid">
+                        <a href="/Account/Register" class="btn btn-light">
+                            Não possui conta? <strong>Cadastre-se aqui!</strong>
+                        </a>
+                        <a href="/Account/PasswordRecover" class="btn btn-light"> Esqueceu a senha?</a>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <small>JonzTech - Asp.Net MVC</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
