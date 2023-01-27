@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Message Layer", "3 - Me
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Reports Layer", "4 - Reports Layer", "{B2B63DDA-EE0B-4ED1-8EA8-38BBD3063B55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaContas.Data", "SistemaContas.Data\SistemaContas.Data.csproj", "{024A5AFF-AC30-44DE-B373-16A8B24D1461}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{069CD680-5C5E-42A9-B28A-EA6FDDED6AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{069CD680-5C5E-42A9-B28A-EA6FDDED6AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{069CD680-5C5E-42A9-B28A-EA6FDDED6AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{024A5AFF-AC30-44DE-B373-16A8B24D1461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{024A5AFF-AC30-44DE-B373-16A8B24D1461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{024A5AFF-AC30-44DE-B373-16A8B24D1461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{024A5AFF-AC30-44DE-B373-16A8B24D1461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{069CD680-5C5E-42A9-B28A-EA6FDDED6AA1} = {0E091725-CD5D-4B28-B87C-011AFD2ABE2B}
+		{024A5AFF-AC30-44DE-B373-16A8B24D1461} = {A73E4AAA-EB8E-404D-882E-9CDF5EAAAB97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C977F18-D2D5-44D2-BBDA-453A1D17A6B2}
