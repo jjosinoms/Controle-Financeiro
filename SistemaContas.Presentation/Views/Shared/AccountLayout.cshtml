@@ -35,7 +35,32 @@
                 </div>
             </nav>
         </div>
+        <div class="row">
+            <div class="mb-2 d-grid">
+                @if (TempData["MensagemSucesso"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Sucesso!</strong> @TempData["MensagemSucesso"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                else if (TempData["MensagemAlerta"] != null)
+                {
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Alerta!</strong> @TempData["MensagemAlerta"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                else if (TempData["MensagemErro"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Erro!</strong> @TempData["MensagemErro"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
 
+            </div>
+        </div>
         <!-- Conteudo principal da Página -->
         <div class="row">
             @RenderBody()

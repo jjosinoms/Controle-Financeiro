@@ -1,24 +1,34 @@
-﻿@{
+﻿@model SistemaContas.Presentation.Models.LoginViewModel
+
+@{
     Layout = "~/Views/Shared/AccountLayout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-12 text-center">
-        <h1>Login</h1>
-    </div>
-</div>
+
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <div class="card mt-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Login</h1>
+                </div>
+            </div>
             <div class="card-body">
-                <form class="row g-3">
+                @using (Html.BeginForm())
+                {
                     <div class="mb-2 d-grid">
                         <label for="staticEmail2" class="visually-hidden">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="E-mail">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "E-mail" })
+                        <span class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </span>
                     </div>
                     <div class="mb-2 d-grid">
                         <label for="inputPassword2" class="visually-hidden">Password</label>
-                        <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
+                        @Html.PasswordFor(model => model.Senha, new { @class = "form-control", @placeholder = "Senha" })
+                        <span class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Senha)
+                        </span>
                     </div>
                     <div class="mb-2 d-grid">
                         <button type="submit" class="btn btn-success mb-3">Entrar</button>
@@ -32,7 +42,7 @@
                     <div class="mt-2 text-center">
                         <small>JonzTech - Asp.Net MVC</small>
                     </div>
-                </form>
+                }
             </div>
         </div>
     </div>

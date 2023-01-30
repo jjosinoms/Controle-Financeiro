@@ -1,48 +1,64 @@
-﻿@{
+﻿@model SistemaContas.Presentation.Models.RegisterViewModel
+
+@{
     Layout = "~/Views/Shared/AccountLayout.cshtml";
 }
-
-<div class="col-md-12 text-center">
-    <h1>Register</h1>
-</div>
 
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <div class="card mt-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Cadastrar Usuário</h1>
+                </div>
+            </div>
             <div class="card-body">
-                <form class="row g-3">
+                @using (Html.BeginForm())
+                {
                     <div class="mb-2 d-grid">
                         <label for="staticEmail2" class="visually-hidden">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Nome">
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", @placeholder = "Nome" })
+                        <span class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Nome)
+                        </span>
                     </div>
                     <div class="mb-2 d-grid">
                         <label for="staticEmail2" class="visually-hidden">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="E-Mail">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "E-mail" })
+                        <span class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </span>
                     </div>
                     <div class="mb-2 d-grid">
                         <label for="inputPassword2" class="visually-hidden">Senha</label>
-                        <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
+                        @Html.PasswordFor(model => model.Senha, new { @class = "form-control", @placeholder = "Senha" })
+                        <span class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Senha)
+                        </span>
                     </div>
                     <div class="mb-2 d-grid">
                         <label for="inputPassword2" class="visually-hidden">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="inputPassword3" placeholder="Confirmar Senha">
+                        @Html.PasswordFor(model => model.SenhaConfirmacao, new { @class = "form-control", @placeholder = "Confirmar Senha" })
+                        <span class="text-danger">
+                            @Html.ValidationMessageFor(model => model.SenhaConfirmacao)
+                        </span>
                     </div>
                     <div class="mb-2 d-grid">
                         <button type="submit" class="btn btn-primary mb-3">Cadastrar Novo Usuário</button>
                     </div>
                     <div class="mb-2 d-grid">
                         <a href="/Account/Login" class="btn btn-light">
-                           Já possui conta? <strong>Entre aqui!</strong>
+                            Já possui conta? <strong>Entre aqui!</strong>
                         </a>
                         <a href="/Account/PasswordRecover" class="btn btn-light">
-                            Esqueceu a senha?</a>
+                            Esqueceu a senha?
+                        </a>
                     </div>
 
                     <div class="mt-2 text-center">
                         <small>JonzTech - Asp.Net MVC</small>
                     </div>
-
-                </form>
+                }
             </div>
         </div>
     </div>

@@ -241,3 +241,12 @@ F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\runti
 F:\SistemaContas\SistemaContas\SistemaContas.Presentation\obj\Debug\net7.0\SistemaContas.Presentation.csproj.CopyComplete
 F:\SistemaContas\SistemaContas\SistemaContas.Presentation\obj\Debug\net7.0\SistemaContas.Presentation.RazorAssemblyInfo.cache
 F:\SistemaContas\SistemaContas\SistemaContas.Presentation\obj\Debug\net7.0\SistemaContas.Presentation.RazorAssemblyInfo.cs
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\Dapper.dll
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\System.Data.SqlClient.dll
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\SistemaContas.Data.dll
+F:\SistemaContas\SistemaContas\SistemaContas.Presentation\bin\Debug\net7.0\SistemaContas.Data.pdb
