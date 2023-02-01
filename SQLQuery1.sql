@@ -29,7 +29,6 @@ CREATE TABLE CONTA(
 GO
 
 
-
 INSERT INTO USUARIO(ID, NOME, EMAIL, SENHA)
 	VALUES (NEWID(), 'Jonas Monteiro', '13410453741', '04-01-23 10:34:09 AM', '1')
 
@@ -39,4 +38,5 @@ INSERT INTO CONTA (ID, NOME, VALOR, DATA, OBSERVACOES, TIPO, IDUSUARIO, IDCATEGO
 select * from USUARIO;
 select * from CATEGORIA;
 select * from CONTA;
-				
+
+delete from categoria where NOME = 'teste teste'

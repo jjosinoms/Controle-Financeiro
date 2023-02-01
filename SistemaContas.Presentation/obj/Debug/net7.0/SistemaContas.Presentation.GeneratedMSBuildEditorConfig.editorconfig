@@ -9,25 +9,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SistemaContas.Presentation
 build_property.RootNamespace = SistemaContas.Presentation
-build_property.ProjectDir = F:\SistemaContas\SistemaContas\SistemaContas.Presentation\
+build_property.ProjectDir = C:\Coti Informatica\Controle-Financeiro\SistemaContas.Presentation\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\SistemaContas\SistemaContas\SistemaContas.Presentation
+build_property.MSBuildProjectDirectory = C:\Coti Informatica\Controle-Financeiro\SistemaContas.Presentation
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/SistemaContas/SistemaContas/SistemaContas.Presentation/Views/Account/Login.cshtml]
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/SistemaContas/SistemaContas/SistemaContas.Presentation/Views/Account/PasswordRecover.cshtml]
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Account/PasswordRecover.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQYXNzd29yZFJlY292ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/SistemaContas/SistemaContas/SistemaContas.Presentation/Views/Account/Register.cshtml]
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/SistemaContas/SistemaContas/SistemaContas.Presentation/Views/Shared/AccountLayout.cshtml]
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Categoria/Cadastro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENhZGFzdHJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Categoria/Consulta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENvbnN1bHRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Categoria/Edicao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaWNhby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Shared/AccountLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY291bnRMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Coti Informatica/Controle-Financeiro/SistemaContas.Presentation/Views/Shared/MainLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1haW5MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
