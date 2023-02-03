@@ -16,6 +16,9 @@
     <!-- biblioteca CSS do bootstrap -->
     <link rel="stylesheet" href="/css/bootstrap.css" />
 
+    <!-- biblioteca CSS do DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
+
 </head>
 <body>
 
@@ -46,8 +49,8 @@
                             Gerenciar Minhas Contas
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/Contas/Cadastro">Cadastrar Contas</a></li>
-                            <li><a class="dropdown-item" href="/Contas/Consulta">Consultar Contas</a></li>
+                            <li><a class="dropdown-item" href="/Conta/Cadastro">Cadastrar Contas</a></li>
+                            <li><a class="dropdown-item" href="/Conta/Consulta">Consultar Contas</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -96,12 +99,28 @@
         </div>
     }
 
-    <div class="container">
-        <!-- conteúdo principal do layout -->
-        @RenderBody()
-    </div>
-        <!-- biblioteca JS do bootstrap -->
+    <!-- conteúdo principal do layout -->
+    @RenderBody()
+
+    <!-- biblioteca JS do bootstrap -->
     <script src="/js/bootstrap.bundle.js"></script>
+
+    <!-- biblioteca JS do JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    <!-- biblioteca JS do DataTables -->
+    <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <!-- criando o datatable -->
+    <script>
+        $(document).ready(function () {
+            $('#grid_dados').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json'
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

@@ -9409,24 +9409,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jjosi\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\jjosi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Coti Informatica\\Controle-Financeiro\\SistemaContas.Presentation\\SistemaContas.Presentation.csproj",
+      "projectUniqueName": "F:\\SistemaContas\\Controle-Financeiro\\SistemaContas.Presentation\\SistemaContas.Presentation.csproj",
       "projectName": "SistemaContas.Presentation",
-      "projectPath": "C:\\Coti Informatica\\Controle-Financeiro\\SistemaContas.Presentation\\SistemaContas.Presentation.csproj",
+      "projectPath": "F:\\SistemaContas\\Controle-Financeiro\\SistemaContas.Presentation\\SistemaContas.Presentation.csproj",
       "packagesPath": "C:\\Users\\jjosi\\.nuget\\packages\\",
-      "outputPath": "C:\\Coti Informatica\\Controle-Financeiro\\SistemaContas.Presentation\\obj\\",
+      "outputPath": "F:\\SistemaContas\\Controle-Financeiro\\SistemaContas.Presentation\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\jjosi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9434,15 +9429,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Coti Informatica\\Controle-Financeiro\\SistemaContas.Data\\SistemaContas.Data.csproj": {
-              "projectPath": "C:\\Coti Informatica\\Controle-Financeiro\\SistemaContas.Data\\SistemaContas.Data.csproj"
+            "F:\\SistemaContas\\Controle-Financeiro\\SistemaContas.Data\\SistemaContas.Data.csproj": {
+              "projectPath": "F:\\SistemaContas\\Controle-Financeiro\\SistemaContas.Data\\SistemaContas.Data.csproj"
             }
           }
         }

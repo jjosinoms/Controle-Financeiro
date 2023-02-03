@@ -15,8 +15,28 @@ namespace SistemaContas.Presentation.Controllers
     {
         public IActionResult Consulta()
         {
-            return View();
+            var model = new List<CategoriaConsultaViewModel>();
+
+            try
+            {
+                var categoriaRepository = new CategoriaRepository();
+                foreach (var item in categoriaRepository.GetByUsuario(UsuarioAutenticado.Id))
+                {
+                    var categoriaConsultaViewModel = new CategoriaConsultaViewModel();
+                    categoriaConsultaViewModel.Id = item.Id;
+                    categoriaConsultaViewModel.Nome = item.Nome;
+
+                    model.Add(categoriaConsultaViewModel);
+                }
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao consultar categorias: " + e.Message;
+            }
+
+            return View(model);
         }
+
         public IActionResult Cadastro()
         {
             return View();
@@ -28,8 +48,6 @@ namespace SistemaContas.Presentation.Controllers
             {
                 try
                 {
-                    var data = User.Identity.Name;
-                    var identityViewModel = JsonConvert.DeserializeObject<IdentityViewModel>(data);
 
                     // Verificar se o email informado ja esta cadastrado no banco de dados
                     var categoriaRepository = new CategoriaRepository();
@@ -38,12 +56,12 @@ namespace SistemaContas.Presentation.Controllers
                     var categoria = new Categoria();
 
 
-                    Debug.WriteLine(identityViewModel.Id);
-                    Debug.WriteLine(identityViewModel.Nome);
+                    Debug.WriteLine(UsuarioAutenticado.Id);
+                    Debug.WriteLine(UsuarioAutenticado.Nome);
                     //capturar os dados do usuário enviados pelo formulário
                     categoria.Id = Guid.NewGuid();
                     categoria.Nome = model.Nome;
-                    categoria.IdUsuario = identityViewModel.Id;
+                    categoria.IdUsuario = UsuarioAutenticado.Id;
 
                     //gravando o usuario no banco de dados
                     categoriaRepository.Add(categoria);
@@ -65,15 +83,97 @@ namespace SistemaContas.Presentation.Controllers
             return View();
         }
 
-        public IActionResult Edicao()
+        public IActionResult Edicao(Guid id)
         {
-            return View();
+            var model = new CategoriaEdicaoViewModel();
+
+            try
+            {
+                var categoriaRepository = new CategoriaRepository();
+                var categoria = categoriaRepository.GetById(id);
+                if (categoria != null && categoria.IdUsuario == UsuarioAutenticado.Id)
+                {
+                    model.Id = categoria.Id;
+                    model.Nome = categoria.Nome;
+
+                }
+                else
+                {
+                    TempData["MensagemAlerta"] = "Ocorreram erros de validação no preenchimento do formulário.";
+                }
+
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao obter categoria: " + e.Message;
+            }
+
+            return View(model);
         }
 
-        public IActionResult Delete()
+        [HttpPost]
+        public IActionResult Edicao(CategoriaEdicaoViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var categoriaRepository = new CategoriaRepository();
+                    var categoria = categoriaRepository.GetById(model.Id);
+                    if (categoria != null && categoria.IdUsuario == UsuarioAutenticado.Id)
+                    {
+                        categoria.Nome = model.Nome;
+                        categoriaRepository.Update(categoria);
+
+                        TempData["MensagemSucesso"] = "Categoria alterada com sucesso!";
+                        return RedirectToAction("Consulta");
+                    }
+                }
+                catch (Exception e)
+                {
+                    TempData["MensagemErro"] = "Falha ao atualizar categoria: " + e.Message;
+                }
+            }
+
+            return View(model);
+        }
+        public IActionResult Exclusao(Guid id)
+        {
+            try
+            {
+                //capturar a categoria no banco de dados através do ID
+                var categoriaRepository = new CategoriaRepository();
+                var categoria = categoriaRepository.GetById(id);
+
+                //verificando se a categoria foi encontrada e se
+                //ela pertence ao usuário autenticado
+                if (categoria != null && categoria.IdUsuario == UsuarioAutenticado.Id)
+                {
+                    //excluindo do banco de dados
+                    categoriaRepository.Delete(categoria);
+
+                    TempData["MensagemSucesso"] = "Categoria excluída com sucesso.";
+                }
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao excluir categoria: " + e.Message;
+            }
+
+            return RedirectToAction("Consulta");
+
         }
 
+        /// <summary>
+        /// Metodo para retornar os dados so usuario autenticado
+        /// </summary>
+        private IdentityViewModel UsuarioAutenticado
+        {
+            get
+            {
+                var data = User.Identity.Name;
+                return JsonConvert.DeserializeObject<IdentityViewModel>(data);
+            }
+        }
     }
 }

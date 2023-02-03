@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+
+            <h5>Consulta de Contas</h5>
+            <p>Consulte as suas contas por período de datas.</p>
+            <hr />
+
+            <form>
+
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-success" value="Filtrar Contas" />
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="table-responsive">
+                <table id="grid_dados" class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome da conta</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Categoria</th>
+                            <th>Observacoes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="/Contas/Edicao/"
+                                   class="btn btn-sm btn-outline-primary">
+                                    Editar
+                                </a>
+                                <a href="/Contas/Exclusao/"
+                                   class="btn btn-sm btn-outline-danger"
+                                   onclick="return confirm('Deseja realmente excluir esta conta?');">
+                                    Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

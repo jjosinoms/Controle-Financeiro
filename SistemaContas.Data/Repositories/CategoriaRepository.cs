@@ -70,7 +70,7 @@ namespace SistemaContas.Data.Repositories
              
         }
 
-        public Categoria? Get(Guid id)
+        public Categoria? GetById(Guid id)
         {
             var query = @"
                 SELECT * FROM CATEGORIA
@@ -80,6 +80,11 @@ namespace SistemaContas.Data.Repositories
             {
                 return connection.Query<Categoria>(query, new { id }).FirstOrDefault();
             }
+        }
+
+        public Categoria? Get(Guid id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

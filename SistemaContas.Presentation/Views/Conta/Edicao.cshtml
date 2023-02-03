@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+
+            <h5>Edição de Contas</h5>
+            <p>Utilize o formulário abaixo para alterar os dados da conta.</p>
+            <hr />
+
+            <form>
+
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label>Nome da conta:</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Valor da conta:</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Data da conta:</label>
+                        <input type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <label>Tipo da conta:</label>
+                        <select class="form-select">
+                            <option>Escolha uma opção</option>
+                        </select>
+                    </div>
+                    <div class="col-md-9">
+                        <label>Categoria da conta:</label>
+                        <select class="form-select">
+                            <option>Escolha uma opção</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <label>Observações:</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-primary" value="Salvar Alterações" />
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+

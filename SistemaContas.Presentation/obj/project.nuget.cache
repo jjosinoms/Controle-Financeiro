@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6fB7qKDROrPGsVonCaPKaetUimzaghga1LjiWy4DGCoh7FglXwqCTdltRZzIHFSpNwl84YxwuF9WZqHBSbSBQg==",
+  "dgSpecHash": "Lr0gvJHL7MgOkLPdyvPx9D6Y6y5AL1Sp7xd6SVbw+LtVfXcM0cCi89VrIhe+NgZjv0maK6DejnU6hYeBhHbtMw==",
   "success": true,
-  "projectFilePath": "C:\\Coti Informatica\\Controle-Financeiro\\SistemaContas.Presentation\\SistemaContas.Presentation.csproj",
+  "projectFilePath": "F:\\SistemaContas\\Controle-Financeiro\\SistemaContas.Presentation\\SistemaContas.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jjosi\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\jjosi\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
