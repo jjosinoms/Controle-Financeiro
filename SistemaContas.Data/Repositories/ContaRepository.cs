@@ -68,6 +68,19 @@ namespace SistemaContas.Data.Repositories
             }
         }
 
+        public List<Conta> GetByUsuarioAndDatas(Guid idUsuario, DateTime dataIni, DateTime dataFim)
+        {
+            var query = @"
+                SELECT * FROM CONTA
+                WHERE IDUSUARIO = @idUsuario AND DATA BETWEEN @dataIni and @dataFim
+                ORDER BY DATA DESC
+            ";
+            using (var connection = new SqlConnection(SqlServerConfiguration.ConnectionString))
+            {
+                return connection.Query<Conta>(query, new { idUsuario, dataIni, dataFim }).ToList();
+            }
+        }
+
         public Conta? Get(Guid id)
         {
             var query = @"
