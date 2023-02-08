@@ -81,6 +81,17 @@ namespace SistemaContas.Data.Repositories
                 return connection.Query<Categoria>(query, new { id }).FirstOrDefault();
             }
         }
+        public int QuantidadeContasByIdCategoria(Guid id)
+        {
+            var query = @"
+                SELECT count(*) FROM CONTA
+                WHERE IDCATEGORIA = @Id
+            ";
+            using (var connection = new SqlConnection(SqlServerConfiguration.ConnectionString))
+            {
+                return connection.Query<int>(query, new { id }).FirstOrDefault();
+            }
+        }
 
         public Categoria? Get(Guid id)
         {

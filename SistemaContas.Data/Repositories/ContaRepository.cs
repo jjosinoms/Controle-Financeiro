@@ -81,7 +81,7 @@ namespace SistemaContas.Data.Repositories
             }
         }
 
-        public Conta? Get(Guid id)
+        public Conta? GetById(Guid id)
         {
             var query = @"
                 SELECT * FROM CONTA
@@ -91,6 +91,11 @@ namespace SistemaContas.Data.Repositories
             {
                 return connection.Query<Conta>(query, new { id }).FirstOrDefault();
             }
+        }
+
+        Conta? IRepository<Conta>.Get(Guid id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -149,10 +149,22 @@ namespace SistemaContas.Presentation.Controllers
                 //ela pertence ao usuário autenticado
                 if (categoria != null && categoria.IdUsuario == UsuarioAutenticado.Id)
                 {
-                    //excluindo do banco de dados
-                    categoriaRepository.Delete(categoria);
+                    //capturar a quantidade de contas da categoria selecionada
+                    var quantidadeContas = categoriaRepository.QuantidadeContasByIdCategoria(id);
+                    if( quantidadeContas == 0) // não ha contas vinculadas para a categoria
+                    {
+                        categoriaRepository.Delete(categoria);
 
-                    TempData["MensagemSucesso"] = "Categoria excluída com sucesso.";
+                        TempData["MensagemSucesso"] = "Categoria excluída com sucesso.";
+                        
+                    }
+                    else
+                    {
+                        TempData["MensagemAlerta"] = $"Não é possivél excluir essa categoria! Pois exitem '{quantidadeContas}' contas relacionadas a ela!";
+                    }
+
+                    //excluindo do banco de dados
+
                 }
             }
             catch (Exception e)

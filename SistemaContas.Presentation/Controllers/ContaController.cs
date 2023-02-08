@@ -33,7 +33,7 @@ namespace SistemaConta.Presentation.Controllers
                     conta.Nome = model.Nome;
                     conta.Valor = model.Valor;
                     conta.Data = model.Data;
-                    conta.Tipo = model.Tipo;
+                    conta.Tipo = model.Tipo == 1 ? TipoConta.Receber : TipoConta.Pagar; 
                     conta.Observacoes = model.Observacoes;
                     conta.IdCategoria = model.IdCategoria;
                     conta.IdUsuario = UsuarioAutenticado.Id;
@@ -101,9 +101,96 @@ namespace SistemaConta.Presentation.Controllers
             return View(model);
         }
 
-        public IActionResult Edicao()
+        public IActionResult Exclusao(Guid id)
         {
-            return View();
+            try
+            {
+                var contaRepository = new ContaRepository();
+                var conta = contaRepository.GetById(id);
+                if (conta != null && conta.IdUsuario == UsuarioAutenticado.Id)
+                {
+                    //excluindo do banco de dados
+                    contaRepository.Delete(conta);
+
+                    TempData["MensagemSucesso"] = "Conta excluída com sucesso.";
+                }
+
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao excluir conta" + e.Message;
+            }
+            return RedirectToAction("Consulta");
+        }
+
+        public IActionResult Edicao(Guid id)
+        {
+            var model = new ContaEdicaoViewModel();
+
+            try
+            {
+                var contaRepository = new ContaRepository();
+                var conta = contaRepository.GetById(id);
+
+                if (conta != null && conta.IdUsuario == UsuarioAutenticado.Id)
+                {
+                    model.Id = conta.Id;
+                    model.Nome = conta.Nome;
+                    model.Valor = conta.Valor;
+                    model.Observacoes = conta.Observacoes;
+                    model.IdCategoria = conta.IdCategoria;
+                    model.Data = conta.Data.ToString("yyyy-MM-dd");
+                    model.Tipo = conta.Tipo == TipoConta.Receber ? 1 : 2;
+                    model.Categorias = ObterCategorias();
+
+                }
+                else
+                {
+                    TempData["MensagemAlerta"] = "Ocorreram erros de validação no preenchimento do formulário.";
+                }
+
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao obter conta: " + e.Message;
+            }
+
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Edicao(ContaEdicaoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var contaRepository = new ContaRepository();
+                    var conta = contaRepository.GetById(model.Id);
+
+                    if (conta != null && conta.IdUsuario == UsuarioAutenticado.Id)
+                    {
+                        conta.Nome = model.Nome;
+                        conta.Data = DateTime.Parse(model.Data);
+                        conta.Valor = model.Valor.Value;
+                        conta.Tipo = model.Tipo == 1 ? TipoConta.Receber : TipoConta.Pagar;
+                        conta.IdCategoria = model.IdCategoria.Value;
+                        conta.Observacoes = model.Observacoes;
+
+                        contaRepository.Update(conta);
+
+                        TempData["MensagemSucesso"] = "Conta atualizada com sucesso.";
+                        return RedirectToAction("Consulta");
+                    }
+                }
+                catch (Exception e)
+                {
+                    TempData["MensagemErro"] = "Falha ao atualizar conta: " + e.Message;
+                }
+            }
+
+            model.Categorias = ObterCategorias();
+            return View(model);
+
         }
 
         /// <summary>

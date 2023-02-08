@@ -20,7 +20,7 @@ namespace SistemaContas.Presentation.Models
         public DateTime Data { get; set; }
 
         [Required(ErrorMessage = "Por favor, informe o data da conta.")]
-        public TipoConta? Tipo { get; set; }
+        public int? Tipo { get; set; }
 
         [Required(ErrorMessage = "Por favor, informe as observações da conta.")]
         public string? Observacoes { get; set; }
