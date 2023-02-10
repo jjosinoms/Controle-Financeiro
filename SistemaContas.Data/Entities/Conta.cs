@@ -27,7 +27,7 @@ namespace SistemaContas.Data.Entities
         public string? Observacoes { get => _observacoes; set => _observacoes = value; }
         public TipoConta? Tipo { get => _tipo; set => _tipo = value; }
         public Usuario? UsuarioId { get => _usuario; set => _usuario = value; }
-        public Categoria? CategoriaId { get => _categoria; set => _categoria = value; }
+        public Categoria? Categoria { get => _categoria; set => _categoria = value; }
         public Guid IdCategoria { get => _idCategoria; set => _idCategoria = value; }
         public Guid IdUsuario { get => _idUsuario; set => _idUsuario = value; }
     }

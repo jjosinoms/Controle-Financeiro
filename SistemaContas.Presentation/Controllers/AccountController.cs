@@ -8,6 +8,9 @@ using SistemaContas.Data.Repositories;
 using SistemaContas.Presentation.Models;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using Bogus;
+using SistemaContas.Messages.Services;
+
 
 namespace SistemaContas.Presentation.Controllers
 {
@@ -138,7 +141,50 @@ namespace SistemaContas.Presentation.Controllers
         [HttpPost] // Recebe o SUBMIT do formulário
         public IActionResult PasswordRecover(PasswordRecoverViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var usuarioRepository = new UsuarioRepository();
+                    var usuario = usuarioRepository.GetByEmail(model.Email);    
+
+                    if(usuario != null)
+                    {
+                        // Faker é uma classe do Bogus
+                        var novaSenha = new Faker().Internet.Password();
+                        // enviar a senha para o email do usuario
+                        var emailDest = usuario.Email;
+                        var assunto = "Recuperação de Senha - Sistema Contas";
+                        var mensagem = $@"
+                                <h3>Olá, { usuario.Nome }</h3>
+                                <p> Uma nova senha foi gerada com sucesso para o seu usuário. </p>
+                                <p> Acesse o sistema com a senha: {novaSenha} </p>
+                                <p> Após acessar o sistema, você pode alterar essa senha para uma nova de sua preferência. </p>
+                                </br>
+                                <p>Att, </br> Equipe Sistema Contas </p>
+                            ";
+                        //enviando o email para o usuário
+                        EmailService.EnviarMensagem(emailDest, assunto, mensagem);
+                        usuarioRepository.Update(usuario.Id, MD5Helper.Encrypt(novaSenha));
+
+                        TempData["MensagemSucesso"] = "Recuperação de senha realizada com sucesso";
+                        ModelState.Clear();
+
+                    }
+                    else
+                    {
+                        TempData["MensagemAlerta"] = "Usuário não encontrado! Verifique o E-mail informado.";
+                    }
+
+                }
+                catch(Exception e)
+                {
+                    TempData["MensagemErro"] = "Falha ao recuperar senha: " + e.Message;
+                }
+            }
+
+
+            return View(model);
         }
 
         //Account/Logout
@@ -150,5 +196,6 @@ namespace SistemaContas.Presentation.Controllers
             //redirecionar de volta para a pagina de Login
             return RedirectToAction("Login", "Account");
         }
+
     }
 }

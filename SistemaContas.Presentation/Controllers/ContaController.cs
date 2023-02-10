@@ -6,6 +6,7 @@ using SistemaContas.Data.Entities;
 using SistemaContas.Data.Enums;
 using SistemaContas.Data.Repositories;
 using SistemaContas.Presentation.Models;
+using SistemaContas.Reports.Services;
 
 namespace SistemaConta.Presentation.Controllers
 {
@@ -246,6 +247,31 @@ namespace SistemaConta.Presentation.Controllers
 
                 model.Resultado.Add(resultado);
             }
+        }
+
+        public IActionResult Relatorio()
+        {
+            try
+            {
+                //consultar as categorias do usuário autenticado
+                var contaRepository = new ContaRepository();
+                var contas = contaRepository.GetByUsuario(UsuarioAutenticado.Id);
+
+                //gerar um relatorio excel com as categorias
+                var contasReportService = new ContasReportService();
+                var relatorio = contasReportService.GerarRelatorio(contas);
+
+                //Download do relatorio
+
+                return File(relatorio, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "relatorio_contas.xlsx");
+
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao gerar relatório" + e.Message;
+            }
+
+            return RedirectToAction("Consulta");
         }
     }
 }

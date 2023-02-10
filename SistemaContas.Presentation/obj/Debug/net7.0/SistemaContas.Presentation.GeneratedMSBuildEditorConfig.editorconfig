@@ -63,3 +63,7 @@ build_metadata.AdditionalFiles.CssScope =
 [F:/SistemaContas/Controle-Financeiro/SistemaContas.Presentation/Views/Shared/MainLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1haW5MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
+
+[F:/SistemaContas/Controle-Financeiro/SistemaContas.Presentation/Views/Usuario/MinhaConta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xNaW5oYUNvbnRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 

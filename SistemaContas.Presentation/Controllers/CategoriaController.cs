@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Protocol.Core.Types;
+using OfficeOpenXml.ConditionalFormatting;
 using SistemaContas.Data.Entities;
 using SistemaContas.Data.Helpers;
 using SistemaContas.Data.Repositories;
 using SistemaContas.Presentation.Models;
+using SistemaContas.Reports.Services;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -151,12 +154,12 @@ namespace SistemaContas.Presentation.Controllers
                 {
                     //capturar a quantidade de contas da categoria selecionada
                     var quantidadeContas = categoriaRepository.QuantidadeContasByIdCategoria(id);
-                    if( quantidadeContas == 0) // não ha contas vinculadas para a categoria
+                    if (quantidadeContas == 0) // não ha contas vinculadas para a categoria
                     {
                         categoriaRepository.Delete(categoria);
 
                         TempData["MensagemSucesso"] = "Categoria excluída com sucesso.";
-                        
+
                     }
                     else
                     {
@@ -186,6 +189,31 @@ namespace SistemaContas.Presentation.Controllers
                 var data = User.Identity.Name;
                 return JsonConvert.DeserializeObject<IdentityViewModel>(data);
             }
+        }
+
+        public IActionResult Relatorio()
+        {
+            try
+            {
+                //consultar as categorias do usuário autenticado
+                var categoriaRepository = new CategoriaRepository();
+                var categorias = categoriaRepository.GetByUsuario(UsuarioAutenticado.Id);
+
+                //gerar um relatorio excel com as categorias
+                var categoriaReportService = new CategoriasReportService();
+                var relatorio = categoriaReportService.GerarRelatorio(categorias);
+
+                //Download do relatorio
+
+                return File(relatorio, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "relatorio_categorias.xlsx");
+                
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao gerar relatório" + e.Message;
+            }
+
+            return RedirectToAction("Consulta");
         }
     }
 }

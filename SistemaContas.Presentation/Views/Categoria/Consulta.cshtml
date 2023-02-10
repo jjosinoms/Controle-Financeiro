@@ -13,6 +13,12 @@
             <p>Listagem de categorias cadastradas.</p>
             <hr />
 
+            <div class="mb-3">
+                <a href="/Categoria/Relatorio" class="btn btn-outline-primary btn-sm">
+                    Gerar Relatório
+                </a>
+            </div>
+
             <div class="table-responsive">
                 <table id="grid_dados" class="table table-sm table-hover">
                     <thead>
@@ -28,10 +34,13 @@
                             <tr>
                                 <td>@item.Nome</td>
                                 <td>
-                                    <a href="/Categoria/Edicao/@item.Id" class="btn btn-sm btn-outline-primary">
+                                    <a href="/Categorias/Edicao/@item.Id"
+                                   class="btn btn-sm btn-outline-primary">
                                         Editar
                                     </a>
-                                    <a href="/Categoria/Exclusao/@item.Id" class="btn btn-sm btn-outline-danger" onclick="return confirm('Deseja realmente excluir essa categoria?')">
+                                    <a href="/Categorias/Exclusao/@item.Id"
+                                   class="btn btn-sm btn-outline-danger"
+                                   onclick="return confirm('Deseja realmente excluir esta categoria?');">
                                         Excluir
                                     </a>
                                 </td>
