@@ -26,7 +26,7 @@ Aplicação AspNet MVC + SqlServer
 
 * Crie um banco de dados local do SqlServer
 
-* Execute o arquivo [a relative link](script.sql)
+* Execute o arquivo [script.sql](script.sql)
 
 * Modifique a connectionstring na classe SqlServerConfiguration
 
@@ -34,7 +34,7 @@ Aplicação AspNet MVC + SqlServer
 
 ## Projeto em execução no HOST:
 
-* [a link](http ://jjosinoms-001-site1.dtempurl.com)
+* [http ://jjosinoms-001-site1.dtempurl.com](http ://jjosinoms-001-site1.dtempurl.com)
 
 
 
