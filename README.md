@@ -34,7 +34,7 @@ Aplicação AspNet MVC + SqlServer
 
 ## Projeto em execução no HOST:
 
-* [http ://jjosinoms-001-site1.dtempurl.com](http ://jjosinoms-001-site1.dtempurl.com)
+* [http ://jjosinoms-001-site1.dtempurl.com/](http ://jjosinoms-001-site1.dtempurl.com/)
 
 
 
