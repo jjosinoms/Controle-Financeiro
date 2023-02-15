@@ -27,12 +27,15 @@
                             @Html.ValidationMessageFor(model => model.DataFim)
                         </span>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <input type="submit" class="btn btn-success" value="Filtrar Contas" />
-                    </div>
-                    <div class="col-md-3">
-                        <a href="/Conta/Relatorio" class="btn btn-outline-primary">
-                            Gerar Relatório
+                        &nbsp;
+                        <a href="/Conta/RelatorioExcel" class="btn btn-outline-primary">
+                            Gerar Relatório Excel
+                        </a>
+                        &nbsp;
+                        <a href="/Conta/RelatorioPdf" class="btn btn-outline-primary">
+                            Gerar Relatório Pdf
                         </a>
                     </div>
 
@@ -62,7 +65,8 @@
                                     <td>@item.Valor</td>
                                     <td>@item.Data</td>
                                     <td>@item.Tipo</td>
-                                    <td></td>
+                                    <th>@item.Categoria</th>
+
                                     <td>
                                         <a href="/Conta/Edicao/@item.Id"
                                    class="btn btn-sm btn-outline-primary">

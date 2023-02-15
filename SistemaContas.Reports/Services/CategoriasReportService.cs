@@ -1,4 +1,9 @@
-﻿using OfficeOpenXml;
+﻿using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using OfficeOpenXml;
+using Org.BouncyCastle.Crypto.Modes.Gcm;
 using SistemaContas.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +15,7 @@ namespace SistemaContas.Reports.Services
 {
     public class CategoriasReportService
     {
-        public byte[] GerarRelatorio(List<Categoria> categorias)
+        public byte[] GerarRelatorioExcel(List<Categoria> categorias)
         {
 
             //define o tipo de licença para criação do arquivo excel
@@ -47,5 +52,36 @@ namespace SistemaContas.Reports.Services
 
             }
         }
+
+        public byte[] GerarRelatorioPdf(List<Categoria> categorias)
+        {
+            var memoryStream = new MemoryStream();
+            var pdf = new PdfDocument(new PdfWriter(memoryStream));
+
+            using (var document = new Document(pdf))
+            {
+                document.Add(new Paragraph("Relatório de Categorias\n"));
+                document.Add(new Paragraph($"Data e hora: {DateTime.Now.ToString("dd/MM/yyyy")}"));
+
+                var table = new Table(2);
+                table.SetWidth(UnitValue.CreatePercentValue(100));
+
+                table.AddHeaderCell("ID");
+                table.AddHeaderCell("Nome da categoria");
+
+                foreach (var item in categorias)
+                {
+                    table.AddCell(item.Id.ToString());
+                    table.AddCell(item.Nome);
+                }
+
+                document.Add(table);
+            }
+
+            return memoryStream.ToArray();
+        }
+
     }
 }
+
+

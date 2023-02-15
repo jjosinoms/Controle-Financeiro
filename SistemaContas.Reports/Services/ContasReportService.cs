@@ -1,4 +1,7 @@
-﻿using OfficeOpenXml;
+﻿using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using OfficeOpenXml;
 using SistemaContas.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -6,11 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace SistemaContas.Reports.Services
 {
     public class ContasReportService
     {
-        public byte[] GerarRelatorio(List<Conta> contas)
+        public byte[] GerarRelatorioExcel(List<Conta> contas)
         {
 
             //define o tipo de licença para criação do arquivo excel
@@ -58,5 +62,32 @@ namespace SistemaContas.Reports.Services
 
             }
         }
+
+        public byte[] GerarRelatorioPdf(List<Conta> contas)
+        {
+            var memoryStream = new MemoryStream();
+            var pdf = new PdfDocument(new PdfWriter(memoryStream));
+
+            using (var document = new Document(pdf))
+            {
+                document.Add(new Paragraph("Relatório de Contas\n"));
+                document.Add(new Paragraph($"Data: {DateTime.Now.ToString("dd/MM/yyyy")}\n\n"));
+
+                foreach (var item in contas)
+                {
+                    document.Add(new Paragraph($"ID: {item.Id}"));
+                    document.Add(new Paragraph($"Nome da Conta: {item.Nome}"));
+                    document.Add(new Paragraph($"Data da Conta: {item.Data.ToString("dd/MM/yyyy")}"));
+                    document.Add(new Paragraph($"Valor: {item.Valor}"));
+                    document.Add(new Paragraph($"Tipo: {item.Tipo.ToString()}"));
+                    document.Add(new Paragraph($"Categoria:"));
+                    document.Add(new Paragraph($"Observações: {item.Observacoes}"));
+                    document.Add(new Paragraph("\n\n"));
+                }
+            }
+
+            return memoryStream.ToArray();
+        }
     }
 }
+

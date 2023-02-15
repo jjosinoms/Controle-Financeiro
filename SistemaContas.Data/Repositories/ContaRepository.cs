@@ -49,47 +49,77 @@ namespace SistemaContas.Data.Repositories
         public List<Conta> GetAll()
         {
             var query = @"
-                SELECT * FROM CONTA ORDER BY NOME
+                SELECT * FROM CONTA co
+                INNER JOIN CATEGORIA ca
+                ON ca.ID = co.IDCATEGORIA
+                ORDER BY co.NOME
             ";
+
             using (var connection = new SqlConnection(SqlServerConfiguration.ConnectionString))
             {
-                return connection.Query<Conta>(query).ToList();
+                return connection.Query(query,
+                    (Conta co, Categoria ca) => { co.Categoria = ca; return co; },
+                    splitOn: "IdCategoria")
+                    .ToList();
             }
         }
 
         public List<Conta> GetByUsuario(Guid idUsuario)
         {
             var query = @"
-                SELECT * FROM CONTA WHERE IDUSUARIO = @idUsuario ORDER BY NOME    
+                SELECT * FROM CONTA co
+                INNER JOIN CATEGORIA ca
+                ON ca.ID = co.IDCATEGORIA
+                WHERE co.IDUSUARIO = @idUsuario
+                ORDER BY co.NOME
             ";
+
             using (var connection = new SqlConnection(SqlServerConfiguration.ConnectionString))
             {
-                return connection.Query<Conta>(query, new { idUsuario }).ToList();
+                return connection.Query(query,
+                    (Conta co, Categoria ca) => { co.Categoria = ca; return co; },
+                    new { idUsuario },
+                    splitOn: "IdCategoria")
+                    .ToList();
             }
         }
 
         public List<Conta> GetByUsuarioAndDatas(Guid idUsuario, DateTime dataIni, DateTime dataFim)
         {
             var query = @"
-                SELECT * FROM CONTA
-                WHERE IDUSUARIO = @idUsuario AND DATA BETWEEN @dataIni and @dataFim
-                ORDER BY DATA DESC
+                SELECT * FROM CONTA co
+                INNER JOIN CATEGORIA ca
+                ON ca.ID = co.IDCATEGORIA
+                WHERE co.IDUSUARIO = @idUsuario AND co.DATA BETWEEN @dataIni AND @dataFim
+                ORDER BY co.DATA DESC
             ";
+
             using (var connection = new SqlConnection(SqlServerConfiguration.ConnectionString))
             {
-                return connection.Query<Conta>(query, new { idUsuario, dataIni, dataFim }).ToList();
+                return connection.Query(query,
+                    (Conta co, Categoria ca) => { co.Categoria = ca; return co; },
+                    new { idUsuario, dataIni, dataFim },
+                    splitOn: "IdCategoria")
+                    .ToList();
             }
         }
 
         public Conta? GetById(Guid id)
         {
             var query = @"
-                SELECT * FROM CONTA
-                WHERE ID = @Id
+                SELECT * FROM CONTA co
+                INNER JOIN CATEGORIA ca
+                ON ca.ID = co.IDCATEGORIA
+                WHERE co.ID = @Id
             ";
+
             using (var connection = new SqlConnection(SqlServerConfiguration.ConnectionString))
             {
-                return connection.Query<Conta>(query, new { id }).FirstOrDefault();
+                return connection.Query(query,
+                   (Conta co, Categoria ca) => { co.Categoria = ca; return co; },
+                   new { id },
+                   splitOn: "IdCategoria")
+                   .FirstOrDefault();
             }
         }
 

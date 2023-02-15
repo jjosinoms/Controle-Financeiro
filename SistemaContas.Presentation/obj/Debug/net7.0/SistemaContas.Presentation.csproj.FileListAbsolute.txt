@@ -762,3 +762,16 @@ F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0
 F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\Microsoft.IO.RecyclableMemoryStream.dll
 F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.barcodes.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.forms.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.io.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.kernel.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.layout.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.pdfa.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.sign.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.styledxmlparser.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.svg.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\itext.commons.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\Microsoft.DotNet.PlatformAbstractions.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+F:\SistemaContas\Controle-Financeiro\SistemaContas.Presentation\bin\Debug\net7.0\BouncyCastle.Crypto.dll

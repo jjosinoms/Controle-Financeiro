@@ -14,8 +14,12 @@
             <hr />
 
             <div class="mb-3">
-                <a href="/Categoria/Relatorio" class="btn btn-outline-primary btn-sm">
-                    Gerar Relatório
+                <a href="/Categoria/RelatorioExcel" class="btn btn-outline-primary">
+                    Gerar Relatório Excel
+                </a>
+                &nbsp;
+                <a href="/Categoria/RelatorioPdf" class="btn btn-outline-primary">
+                    Gerar Relatório Pdf
                 </a>
             </div>
 
@@ -34,11 +38,11 @@
                             <tr>
                                 <td>@item.Nome</td>
                                 <td>
-                                    <a href="/Categorias/Edicao/@item.Id"
+                                    <a href="/Categoria/Edicao/@item.Id"
                                    class="btn btn-sm btn-outline-primary">
                                         Editar
                                     </a>
-                                    <a href="/Categorias/Exclusao/@item.Id"
+                                    <a href="/Categoria/Exclusao/@item.Id"
                                    class="btn btn-sm btn-outline-danger"
                                    onclick="return confirm('Deseja realmente excluir esta categoria?');">
                                         Excluir

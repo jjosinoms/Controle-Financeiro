@@ -244,12 +244,13 @@ namespace SistemaConta.Presentation.Controllers
                 resultado.Data = item.Data.ToString("ddd, dd/MM/yyyy");
                 resultado.Valor = item.Valor;
                 resultado.Tipo = item.Tipo.ToString();
+                resultado.Categoria = item.Categoria.Nome;
 
                 model.Resultado.Add(resultado);
             }
         }
 
-        public IActionResult Relatorio()
+        public IActionResult RelatorioExcel()
         {
             try
             {
@@ -259,11 +260,36 @@ namespace SistemaConta.Presentation.Controllers
 
                 //gerar um relatorio excel com as categorias
                 var contasReportService = new ContasReportService();
-                var relatorio = contasReportService.GerarRelatorio(contas);
+                var relatorio = contasReportService.GerarRelatorioExcel(contas);
 
                 //Download do relatorio
 
                 return File(relatorio, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "relatorio_contas.xlsx");
+
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao gerar relatório" + e.Message;
+            }
+
+            return RedirectToAction("Consulta");
+        }
+
+        public IActionResult RelatorioPdf()
+        {
+            try
+            {
+                //consultar as categorias do usuário autenticado
+                var contaRepository = new ContaRepository();
+                var contas = contaRepository.GetByUsuario(UsuarioAutenticado.Id);
+
+                //gerar um relatorio pdf com as contas
+                var contaReportService = new ContasReportService();
+                var relatorio = contaReportService.GerarRelatorioPdf(contas);
+
+                //Download do relatorio
+
+                return File(relatorio, "application/pdf", "relatorio_contas.pdf");
 
             }
             catch (Exception e)

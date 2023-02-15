@@ -191,7 +191,7 @@ namespace SistemaContas.Presentation.Controllers
             }
         }
 
-        public IActionResult Relatorio()
+        public IActionResult RelatorioPdf()
         {
             try
             {
@@ -201,7 +201,31 @@ namespace SistemaContas.Presentation.Controllers
 
                 //gerar um relatorio excel com as categorias
                 var categoriaReportService = new CategoriasReportService();
-                var relatorio = categoriaReportService.GerarRelatorio(categorias);
+                var relatorio = categoriaReportService.GerarRelatorioPdf(categorias);
+
+                //Download do relatorio
+
+                return File(relatorio, "application/pdf", "relatorio_categorias.pdf");
+
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = "Falha ao gerar relatório" + e.Message;
+            }
+
+            return RedirectToAction("Consulta");
+        }
+        public IActionResult RelatorioExcel()
+        {
+            try
+            {
+                //consultar as categorias do usuário autenticado
+                var categoriaRepository = new CategoriaRepository();
+                var categorias = categoriaRepository.GetByUsuario(UsuarioAutenticado.Id);
+
+                //gerar um relatorio excel com as categorias
+                var categoriaReportService = new CategoriasReportService();
+                var relatorio = categoriaReportService.GerarRelatorioExcel(categorias);
 
                 //Download do relatorio
 
